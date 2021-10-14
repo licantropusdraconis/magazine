@@ -17,10 +17,14 @@ namespace Revista.Controllers
     public class UsuarioController : ControllerBase
     {
         // GET: api/<UsuarioController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("{offset}")]
+        public String Get(int offset)
         {
-            return new string[] { "value1", "value2" };
+            ClsUsuario autor = new ClsUsuario("", "", "", "", "", "", "", 1);
+
+            autor.conectar();
+            String mensaje = autor.listarAutores(offset);
+            return mensaje;
         }
 
         // GET api/<UsuarioController>/5

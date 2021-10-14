@@ -1,6 +1,8 @@
-﻿using Npgsql;
+﻿using Newtonsoft.Json;
+using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -97,7 +99,7 @@ namespace Revista.Models
                     this.nom1 = reader.GetString(1);
                     this.nom2 = reader.GetString(2);
                     this.apell1 = reader.GetString(3);
-                    this.apell1 = reader.GetString(4);
+                    this.apell2 = reader.GetString(4);
                     this.email = reader.GetString(5);
                     this.clave = reader.GetString(6);
                     this.tipo_usuario = reader.GetInt32(7);
@@ -117,6 +119,48 @@ namespace Revista.Models
                 Mensaje = "Error" + E;
             }
             return -1;
+        }
+
+        public String listarAutores(int offset)
+        {
+            String Mensaje = "";
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand();
+
+                String sql = "";
+
+                sql = "select * from usuario where tipo_usuario=1 LIMIT 3 OFFSET " + offset;
+
+
+                var reader = new NpgsqlCommand(sql, this.cone).ExecuteReader();
+
+                var todosLosAutores = new List<dynamic>();
+
+                while (reader.Read())
+                {
+                    dynamic autor = new ExpandoObject();
+
+                    autor.ced = reader.GetString(0);
+                    autor.nom1 = reader.GetString(1);
+                    autor.nom2 = reader.GetString(2);
+                    autor.apell1 = reader.GetString(3);
+                    autor.apell2 = reader.GetString(4);
+                    autor.email = reader.GetString(5);
+
+                    todosLosAutores.Add(autor);
+
+                }
+
+                var Json = JsonConvert.SerializeObject(todosLosAutores);
+                return Json;
+            }
+            catch (Exception E)
+
+            {
+                Mensaje = "Error" + E;
+            }
+            return Mensaje;
         }
     }
 }

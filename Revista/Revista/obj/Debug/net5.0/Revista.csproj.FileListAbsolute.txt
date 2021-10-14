@@ -28,3 +28,4 @@ C:\Users\jrodri52\Documents\MinTIC\Fundamentos de Programación\Ciclo 3\Proyecto
 C:\Users\jrodri52\Documents\MinTIC\Fundamentos de Programación\Ciclo 3\Proyecto\Proyecto\Backend\Revista\Revista\obj\Debug\net5.0\ref\Revista.dll
 C:\Users\jrodri52\Documents\MinTIC\Fundamentos de Programación\Ciclo 3\Proyecto\Proyecto\Backend\Revista\Revista\obj\Debug\net5.0\Revista.pdb
 C:\Users\jrodri52\Documents\MinTIC\Fundamentos de Programación\Ciclo 3\Proyecto\Proyecto\Backend\Revista\Revista\obj\Debug\net5.0\Revista.genruntimeconfig.cache
+C:\Users\jrodri52\Documents\MinTIC\Fundamentos de Programación\Ciclo 3\Proyecto\Proyecto\Backend\Revista\Revista\bin\Debug\net5.0\Newtonsoft.Json.dll
