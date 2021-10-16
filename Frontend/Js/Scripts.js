@@ -906,6 +906,69 @@ function ModificarArticulo() {
         });
 }
 
+function ConsultarAutor(){
+    var ced = document.getElementById("ced").value;
+
+    if (ced==""){
+        ced="vacio";
+    }
+
+    var request = new Request('https://localhost:44395/api/Usuario/'+ced+'/'+ced+'/'+ced, {
+        method: 'Get',
+    });
+
+    fetch(request)
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        console.log('data = ', data);
+        json = JSON.parse(data);
+        document.getElementById("ced2").value = json.ced;
+        document.getElementById("nom1").value = json.nom1;
+        document.getElementById("nom2").value = json.nom2;
+        document.getElementById("apell1").value = json.apell1;
+        document.getElementById("apell2").value = json.apell2;
+        document.getElementById("correo").value = json.email;
+        document.getElementById("clave").value = json.clave;
+ 
+        
+    })
+    .catch(function(err) {
+        console.error(err);
+    });
+}
+
+function ModificarAutor() {
+    var request = new Request('https://localhost:44395/api/Usuario', {
+        method: 'Put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ced: document.getElementById("ced2").value,
+            nom1: document.getElementById("nom1").value,
+            nom2: document.getElementById("nom2").value,
+            apell1: document.getElementById("apell1").value,
+            apell2: document.getElementById("apell2").value,
+            correo:document.getElementById("correo").value,
+            clave: document.getElementById("clave").value,
+        })
+    });
+
+    fetch(request)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (data) {
+
+            alert(data);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+}
+
 function EliminarArticulo(){
     ced =localStorage.getItem("ced");
     titulo= document.getElementById("title").value;

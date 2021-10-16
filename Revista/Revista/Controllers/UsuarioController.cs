@@ -38,6 +38,17 @@ namespace Revista.Controllers
             return mensaje;
         }
 
+        // GET api/<UsuarioController>/5
+        [HttpGet("{ced}/{ced1}/{ced2}")]
+        public String Get(String ced, String ced1, String ced2)
+        {
+            ClsUsuario usuario = new ClsUsuario(ced, "", "", "", "", "", "", 0);
+
+            usuario.conectar();
+            String mensaje = usuario.mostrarAutor();
+            return mensaje;
+        }
+
         // POST api/<UsuarioController>
         [HttpPost]
         public String Post([FromBody] JsonElement datosI)
@@ -63,10 +74,30 @@ namespace Revista.Controllers
         }
 
         // PUT api/<UsuarioController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public String Put([FromBody] JsonElement datosI)
         {
+            String cedula = datosI.GetProperty("ced").ToString();
+            String nombre1 = datosI.GetProperty("nom1").ToString();
+            String nombre2 = datosI.GetProperty("nom2").ToString();
+            String apellido1 = datosI.GetProperty("apell1").ToString();
+            String apellido2 = datosI.GetProperty("apell2").ToString();
+            String email = datosI.GetProperty("correo").ToString();
+            String clave = datosI.GetProperty("clave").ToString();
+
+            //Se crea objeto de la clase ClsUsuario
+            ClsUsuario usuario = new ClsUsuario(cedula, nombre1, nombre2, apellido1, apellido2, email, clave,0);
+
+            //Se conecta con la base de datos
+            usuario.conectar();
+
+            //Se guardan datos en la tabla usuario
+            String mensaje = usuario.modificarAutor();
+            return mensaje;
+
+
         }
+
 
         // DELETE api/<UsuarioController>/5
         [HttpDelete]

@@ -61,6 +61,25 @@ namespace Revista.Models
 
         }
 
+        public String modificarAutor()
+        {
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand();
+               
+                String sql = "UPDATE usuario SET nombre_1='" + this.nom1 + "',nombre_2='" + this.nom2 + "',apellido_1='" + this.apell1 + "',apellido_2='" + this.apell2 + "',email='" + this.email + "',clave='" + this.clave + "' where cedula='" + this.ced + "';";
+                cmd = new NpgsqlCommand(sql, this.cone);
+                cmd.ExecuteNonQuery();
+                return "Datos ingresados satisfactoriamente";
+
+            }
+            catch (Exception)
+            {
+                return "Error, los datos no fueron guardados";
+            }
+
+        }
+
         public String eliminarUsuario()
         {
             try
@@ -155,6 +174,50 @@ namespace Revista.Models
                 var Json = JsonConvert.SerializeObject(todosLosAutores);
                 return Json;
             }
+
+            catch (Exception E)
+
+            {
+                Mensaje = "Error" + E;
+            }
+            return Mensaje;
+        }
+
+        public String mostrarAutor()
+        {
+            String Mensaje = "";
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand();
+
+                String sql = "";
+
+                
+
+                if (this.ced != "vacio")
+                    sql = "select * from usuario where tipo_usuario=1 and cedula='" + this.ced + "'";
+
+                var reader = new NpgsqlCommand(sql, this.cone).ExecuteReader();
+
+                this.ced = null;
+
+                while (reader.Read())
+                {
+
+                    this.ced = reader.GetString(0);
+                    this.nom1 = reader.GetString(1);
+                    this.nom2 = reader.GetString(2);
+                    this.apell1 = reader.GetString(3);
+                    this.apell2 = reader.GetString(4);
+                    this.email = reader.GetString(5);
+                    this.clave = reader.GetString(6);
+
+                }
+
+                var Json = JsonConvert.SerializeObject(new { ced = this.ced, nom1 = this.nom1, nom2 = this.nom2, apell1 = this.apell1, apell2 = this.apell2, email = this.email,clave = this.clave });
+                return Json;
+            }
+
             catch (Exception E)
 
             {
