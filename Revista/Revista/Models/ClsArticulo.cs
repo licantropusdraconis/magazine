@@ -80,7 +80,7 @@ namespace Revista.Models
                     articulo.desc = reader.GetString(3);
                     articulo.cont = reader.GetString(4);
                     articulo.estado = reader.GetBoolean(5);
-                    //articulo.fecha = reader.GetString(6);
+                    articulo.fecha = reader.GetDateTime(6);
 
                     todosLosArticulos.Add(articulo);
 

@@ -79,10 +79,9 @@ function ListarAutores(){
         console.log('data = ', data);
         json = JSON.parse(data);
         var lista = document.getElementById("lista_autores");
+
         var texto = document.createTextNode("Cedula");
         var small_div = document.createElement("div");
-        
-
         small_div.setAttribute("class", "ListarHeader");
         small_div.appendChild(texto);
         lista.appendChild(small_div);
@@ -127,51 +126,43 @@ function ListarAutores(){
             small_input.setAttribute('type', 'text');
             small_input.setAttribute('value', json[articulos].ced);
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
-            var small_input = document.createElement("textarea");
+            var small_input = document.createElement("input");
             small_input.setAttribute("class", "AnchoInput");
             small_input.setAttribute('type', 'text');
-            small_input.setAttribute('cols',10);
-            small_input.setAttribute('rows', 10);
             small_input.value=json[articulos].nom1;
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
-            var small_input = document.createElement("textarea");
+            var small_input = document.createElement("input");
             small_input.setAttribute("class", "AnchoInput");
             small_input.setAttribute('type', 'text');
-            small_input.setAttribute('cols',10);
-            small_input.setAttribute('rows', 10);
             small_input.value=json[articulos].nom2;
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
-            var small_input = document.createElement("textarea");
+            var small_input = document.createElement("input");
             small_input.setAttribute("class", "AnchoInput");
             small_input.setAttribute('type', 'text');
-            small_input.setAttribute('cols',10);
-            small_input.setAttribute('rows', 10);
             small_input.value=json[articulos].apell1;
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
-            var small_input = document.createElement("textarea");
+            var small_input = document.createElement("input");
             small_input.setAttribute("class", "AnchoInput");
             small_input.setAttribute('type', 'text');
-            small_input.setAttribute('cols',10);
-            small_input.setAttribute('rows', 10);
             small_input.value=json[articulos].apell2;
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
@@ -180,7 +171,7 @@ function ListarAutores(){
             small_input.setAttribute('type', 'text');
             small_input.setAttribute('value', json[articulos].email);
             var small_div = document.createElement("div");
-            small_div.setAttribute("class", "ListarSection");
+            small_div.setAttribute("class", "ListarSection3");
             small_div.appendChild(small_input);
             lista.appendChild(small_div);
 
@@ -830,7 +821,7 @@ function ListarArticulos(){
             var small_input = document.createElement("input");
             small_input.setAttribute("class", "AnchoInput");
             small_input.setAttribute('type', 'text');
-            small_input.setAttribute('value', json[articulos].cont);
+            small_input.setAttribute('value', json[articulos].fecha);
             var small_div = document.createElement("div");
             small_div.setAttribute("class", "ListarSection");
             small_div.appendChild(small_input);
