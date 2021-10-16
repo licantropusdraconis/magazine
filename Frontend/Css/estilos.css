@@ -1,11 +1,239 @@
-.Header
-{
- width: 100%;
- height: 24%;
- background-color: blueviolet;
-
- 
+@charset "utf-8";
+* {margin:0;padding:0;}
+/*================================================ */
+/*    #Reset & Basics (Inspired by E. Meyers)      */
+/*================================================ */
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	}
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+*, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+html,body {
+height:100%;
+font-family: Helvetica, Arial,'Open Sans',sans-serif !important;
+font-size:1em;
+text-align:justify;
 }
+
+body {
+	background-color:#f4f4f4;
+	color:#000000;	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+	height:auto;
+	}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/* tables still need 'cellspacing="0"' in the markup */ 
+table {border-collapse: collapse;border-spacing: 0;}
+/* #Typography
+================================================== */
+h1,h2,h3,h4,h1 a,h2 a,h3 a,h1 a:hover,h2 a:hover,h3 a:hover {
+	font-family:  , Helvetica;
+	/*font-weight: normal;*/
+	line-height: normal !important;}
+/********************************************/
+h1,h2,h3,h4,h1 a, h2 a, h3 a,h4 a,strong,ul,li,li a{
+	text-align:left;
+}
+h1, h1 a{ font-size:2.5em;}
+h4,h4 a{
+	font-size:0.7em;
+	}
+h3,h3 a{
+	font-size:0.8em;
+	}
+h2,h2 a{
+	font-size:1em;
+	line-height:1em;
+	}
+/********************************************/
+p img { margin: 0; }
+em { font-style: italic; }
+strong { font-weight: bold;}
+small,.small,p .small { font-size: 85% !important; }
+hr {
+	border: solid #87817e; border-width: 1px 0 0;
+	margin: 1px 0 1px;
+	height:1px;
+	color:#d1d1d1;
+	clear: both;
+}
+.regular{font-weight: 300;}
+.light{font-weight: 400;}
+.medium{font-weight: 500;}
+.bold{
+font-weight: 700;
+font-weight: bold !important;
+}
+.bigtext{font-size:1.5em;}
+/*------------------*/
+/*  text-decoration */
+/*------------------*/
+.underline,.tagcloud a:hover{text-decoration:underline;}
+/*------------------*/
+/*  text-transform  */
+/*------------------*/
+.uppercase{text-transform: uppercase;}
+.lowercase{text-transform: lowercase;}
+/*------------------*/
+/*       align      */
+/*------------------*/
+.centered,.centered a,a.centered,.centered h1,.centered h2,.centered h3,.centered h4{text-align:center;margin-left: auto;margin-right: auto;}
+.centered img,img .centered,img .centered a,.centered img,.centered a img{text-align:center !important;display: block !important;margin-left: auto !important;margin-right: auto !important;float:none !important;}
+.left{text-align:left !important;}
+.right{text-align:right !important;}
+.justify{text-align:justify !important;}
+.float{position: fixed;}
+
+/*================================================ 
+ Page styles - F. Gustavo Sierra Hernández
+================================================== */
+.header,.content,.footer{min-height:30px;padding:5px;}
+.header{background-color:#ff0066;box-shadow: 0 0.3em 1em #000;}
+.content{background-color:#f4f4f4;height: 100vh;}
+.footer{background-color:#419aff;width:100%;bottom:0px;position:fixed;box-shadow: 0 0.3em 1em #000;}
+.container{
+width:80%;
+margin: 0 auto;
+border-radius: 5px;
+}
+.content .container{
+height: 100vh;
+}
+.nav {
+  /*background-color: yellow; */
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 1.2em;
+  padding: 10px;
+}
+.whitediv{
+background-color:#fff;
+border-radius: 5px;
+padding:5px;
+}
+.whitetext{
+color:#fff;
+}
+.onethirddiv{
+width:32.33%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.twothirddiv{
+width:65.6%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+}
+.fulldiv{
+width:99%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+}
+.oneforthdiv{
+width:24%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.twoforthdiv{
+width:49%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.threeforthdiv{
+width:74%;
+margin:0.5%;
+padding:10px;
+/*min-height:30px;*/
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+/*display:inline-block;*/
+}
+.onefifthdiv{
+width:19%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.twofifthdiv{
+width:39%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.threefifthdiv{
+width:59%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.fourfifthdiv{
+width:79%;
+margin:0.5%;
+padding:10px;
+min-height:30px;
+border: 2px solid #ccc;
+border-radius: 5px;
+float:left;
+display:inline-block;
+}
+.fullheight{
+  height: 100%;
+}
+
 .ListarHeader{
   width: 16%;
   height: 5%;
@@ -52,16 +280,15 @@
 }
 .Nav
 {
- width: 30%;
- height: 70%;   
- background-color: beige;
  float: left;
 }
 .Section
 {
-  width: 70%;
+  /*width: 70%;
   height: 70%;
-  background-color:honeydew ;
+  background-color:honeydew ;*/
+  width:100%;
+  height:100%;
   float: left;
 }
 .Section2
